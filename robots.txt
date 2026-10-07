@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://itsbibilin.github.io/nova-lab/sitemap.xml
