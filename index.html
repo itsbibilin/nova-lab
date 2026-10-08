@@ -19,6 +19,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
+  <!-- Structured Data: JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Brand",
+        "@id": "https://itsbibilin.github.io/nova-lab/#brand",
+        "name": "NOVA LAB",
+        "description": "A conceptual brand focused on smart laboratory monitoring solutions."
+      },
+      {
+        "@type": "Product",
+        "@id": "https://itsbibilin.github.io/nova-lab/#product",
+        "name": "NOVA ONE",
+        "description": "A conceptual real-time laboratory monitoring system for monitoring environmental conditions, equipment, and critical lab systems.",
+        "brand": {
+          "@id": "https://itsbibilin.github.io/nova-lab/#brand"
+        },
+        "url": "https://itsbibilin.github.io/nova-lab/"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://itsbibilin.github.io/nova-lab/#website",
+        "name": "NOVA LAB",
+        "url": "https://itsbibilin.github.io/nova-lab/"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://itsbibilin.github.io/nova-lab/#webpage",
+        "url": "https://itsbibilin.github.io/nova-lab/",
+        "name": "NOVA LAB | NOVA ONE Laboratory Monitoring",
+        "isPartOf": {
+          "@id": "https://itsbibilin.github.io/nova-lab/#website"
+        },
+        "about": {
+          "@id": "https://itsbibilin.github.io/nova-lab/#product"
+        }
+      }
+    ]
+  }
+  </script>
+
   <script src="fade-up.js" defer></script>
 </head>
 <body>
