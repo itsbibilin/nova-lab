@@ -16,7 +16,7 @@ body { font-family: "Space Grotesk", sans-serif; background: var(--bg); color: v
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
-.container { width: 100%; max-width: 1200px; margin: 0 auto; }
+.container { width: calc(100% - 48px); max-width: 1200px; margin: 0 auto; }
 .blue { color: var(--blue); }
 .cyan { color: var(--cyan); }
 .gray { color: var(--gray); }
@@ -70,7 +70,11 @@ small { font-family: "Space Mono", monospace; font-size: 12px; }
 }
 .section-content { width: 100%; min-width: 0; }
 @media (max-width: 800px) {
-  .page-section { min-height: auto; padding-block: 64px; }
+  .container {
+    width: calc(100% - 40px);
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 @media print {
   .page-section { min-height: auto; }
