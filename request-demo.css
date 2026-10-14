@@ -1,0 +1,74 @@
+/* 基本字體、背景、導覽列、按鈕與頁尾沿用 style.css */
+.demo-nav { border-bottom: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); margin-right: 8px; }
+
+/* ===== 主要區塊 ===== */
+.demo-main { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; padding-top: 70px; padding-bottom: 90px; align-items: start; }
+
+/* ===== 左邊 ===== */
+.pill-tag { display: inline-flex; align-items: center; font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700; padding: 8px 16px; border: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); border-radius: 999px; box-shadow: 0 2px 6px color-mix(in srgb, var(--navy) 6%, transparent); }
+.demo-left h1 { font-size: 64px; margin: 24px 0; }
+.lead { font-size: 17px; color: var(--gray); max-width: 480px; margin-bottom: 40px; }
+.expect-title { font-family: "Space Mono", monospace; font-size: 12px; color: var(--blue); margin-bottom: 16px; }
+.expect-list li { display: flex; gap: 16px; margin-bottom: 20px; }
+.expect-list strong { font-size: 16px; }
+.expect-list p { margin-top: 2px; }
+.check { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: color-mix(in srgb, var(--cyan) 12%, var(--bg)); color: var(--blue); display: grid; place-items: center; font-size: 14px; }
+
+/* 照片卡片：圖片放底層，文字用 absolute 疊上去 */
+.photo-card { position: relative; border-radius: 28px; overflow: hidden; margin-top: 32px; height: 290px; }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+.photo-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, color-mix(in srgb, var(--navy) 85%, transparent), color-mix(in srgb, var(--navy) 0%, transparent) 60%); }
+.photo-tag { position: absolute; top: 16px; left: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 6px; background: var(--bg); font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+.photo-tag svg { width: 16px; height: 16px; color: var(--blue); }
+.photo-text { position: absolute; left: 24px; right: 24px; bottom: 20px; z-index: 2; color: var(--bg); }
+.photo-text p { color: color-mix(in srgb, var(--bg) 85%, transparent); font-size: 15px; }
+
+/* ===== 右邊表單 ===== */
+.form-card { border: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); border-radius: 60px 60px 60px 60px / 60px 60px 60px 60px; padding: 48px; box-shadow: 0 20px 50px color-mix(in srgb, var(--navy) 6%, transparent); }
+.form-tag { font-family: "Space Mono", monospace; font-size: 11px; font-weight: 700; color: var(--blue); }
+.form-card h2 { font-size: 36px; margin: 8px 0 10px; }
+.form-sub { margin-bottom: 28px; }
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field { margin-bottom: 20px; }
+.field label, .field .label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+
+input[type="text"], input[type="email"], select, textarea {
+  width: 100%; padding: 18px 20px; font-family: inherit; font-size: 16px; color: var(--navy);
+  background: color-mix(in srgb, var(--gray) 6%, var(--bg)); border: 1px solid color-mix(in srgb, var(--gray) 25%, var(--bg)); border-radius: 14px; outline: none;
+}
+input::placeholder, textarea::placeholder { color: var(--gray); }
+select { color: var(--gray); }
+textarea { resize: vertical; min-height: 120px; }
+input:focus, select:focus, textarea:focus { border-color: var(--blue); background: var(--bg); }
+
+/* 單選框 */
+.radio-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.radio-box { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border: 1px solid color-mix(in srgb, var(--gray) 25%, var(--bg)); border-radius: 12px; font-size: 15px; cursor: pointer; margin-bottom: 0; }
+.radio-box input { accent-color: var(--blue); width: 18px; height: 18px; }
+.radio-box:has(input:checked) { border: 2px solid var(--blue); background: color-mix(in srgb, var(--blue) 7%, var(--bg)); }
+
+/* 同意勾選 + 送出 */
+.agree { display: flex; gap: 12px; align-items: center; font-size: 13px; color: var(--gray); margin-bottom: 28px; }
+.agree input { width: 20px; height: 20px; accent-color: var(--blue); }
+.submit { width: 100%; padding: 22px; border: none; border-radius: 14px; background: var(--blue); color: var(--bg); font-family: inherit; font-size: 18px; font-weight: 700; cursor: pointer; }
+.submit:hover { background: color-mix(in srgb, var(--blue) 85%, var(--navy)); }
+
+/* ===== 下方特色區 ===== */
+.features-bar { border-top: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); border-bottom: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); background: var(--bg); padding: 50px 0; }
+.fb-head { display: flex; justify-content: space-between; margin-bottom: 28px; font-size: 14px; color: var(--gray); }
+.fb-title { font-family: "Space Mono", monospace; font-size: 12px; font-weight: 700; color: var(--navy); }
+.fb-card { display: flex; align-items: center; gap: 16px; padding: 22px; background: color-mix(in srgb, var(--blue) 4%, var(--bg)); border: 1px solid color-mix(in srgb, var(--gray) 20%, var(--bg)); border-radius: 18px; }
+.fb-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 20px; height: 20px; color: var(--blue); }
+.fb-icon svg { width: 100%; height: 100%; }
+.fb-card strong { font-size: 16px; }
+.fb-card p { font-size: 13px; }
+
+
+/* ===== 手機版 ===== */
+@media (max-width: 900px) {
+  .demo-main, .fb-grid, .row-2, .radio-row { grid-template-columns: 1fr; }
+  .demo-left h1 { font-size: 44px; }
+  .form-card { padding: 28px; border-radius: 32px; }
+  .fb-head { flex-direction: column; gap: 8px; }
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Demo | NOVA LAB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- 先載入共用 style.css，再載入本頁專用的 request-demo.css -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="request-demo.css">
+</head>
+<body class="demo-page">
+
+  <!-- 導覽列 -->
+  <header class="nav demo-nav">
+    <a href="index.html" class="logo"><img class="logo-icon" src="images/nova-lab_logo.png" alt="NOVA ONE Logo"></a>
+    <nav class="nav-links">
+      <a href="#">Product</a><a href="#">Features</a><a href="#">Platform</a><a href="index.html#how">How It Works</a><a href="#">Docs</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="sign-in">Sign In</a>
+    </div>
+  </header>
+
+  <!-- 主要區塊：左文字 + 右表單 -->
+  <main class="container demo-main">
+
+    <!-- 左邊 -->
+    <section class="demo-left">
+      <span class="pill-tag"><i class="dot"></i> REQUEST A PERSONALIZED DEMO</span>
+      <h1>See your<br>lab in one<br>connected view.</h1>
+      <p class="lead">Tell us what you’re monitoring, and we’ll show you how NOVA ONE brings lab conditions, equipment, and alerts together in one connected system.</p>
+
+      <h4 class="expect-title">WHAT TO EXPECT</h4>
+      <ul class="expect-list">
+        <li>
+          <span class="check">✓</span>
+          <div><strong>A focused 30-minute conversation</strong><p>We’ll learn about your lab, monitoring needs, and current workflow.</p></div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>A tailored NOVA ONE walkthrough</strong><p>See how monitoring, connected equipment, alerts, and the NOVA Cloud Platform work together.</p></div>
+        </li>
+        <li>
+          <span class="check">✓</span>
+          <div><strong>Recommendations for your setup</strong><p>Explore how NOVA ONE could fit into your lab environment and daily workflow.</p></div>
+        </li>
+      </ul>
+
+      <div class="photo-card">
+        <img src="images/nova-lab-image01.png" alt="">
+        <span class="photo-tag"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3c2 2 4 3 7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7c3-1 5-2 7-4Z"/><path d="m9 12 2 2 4-4"/></svg> BUILT FOR MODERN LABS</span>
+        <div class="photo-text">
+          <h3>Your workflow, not a generic sales deck.</h3>
+          <p>We’ll tailor the demo around your monitoring needs, equipment, and daily workflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右邊表單 -->
+    <section class="form-card">
+      <span class="form-tag"><i class="dot"></i> TAKES ABOUT 2 MINUTES</span>
+      <h2>Tell us about your lab</h2>
+      <p class="form-sub">Share a few details so we can tailor the demo to your needs.</p>
+
+      <form action="#" method="post">
+        <div class="row-2">
+          <div class="field">
+            <label for="first">First name *</label>
+            <input type="text" id="first" placeholder="Taylor" required>
+          </div>
+          <div class="field">
+            <label for="last">Last name *</label>
+            <input type="text" id="last" placeholder="Morgan" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Work email *</label>
+          <input type="email" id="email" placeholder="taylor@yourlab.com" required>
+        </div>
+
+        <div class="field">
+          <label for="org">Organization *</label>
+          <input type="text" id="org" placeholder="Company or institution" required>
+        </div>
+
+        <div class="row-2">
+          <div class="field">
+            <label for="role">Your role *</label>
+            <select id="role" required>
+              <option value="" selected disabled>Select role</option>
+              <option>Lab Manager</option>
+              <option>Researcher</option>
+              <option>Facility Manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="size">Team size</label>
+            <select id="size">
+              <option value="" selected disabled>Select size</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>200+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="label">What would you like to monitor? *</span>
+          <div class="radio-row">
+            <label class="radio-box"><input type="radio" name="monitor" checked><span>Lab Conditions</span></label>
+            <label class="radio-box"><input type="radio" name="monitor"><span>Equipment</span></label>
+            <label class="radio-box"><input type="radio" name="monitor"><span>Both</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="goal">Primary goal or challenge</label>
+          <textarea id="goal" rows="4" placeholder="Tell us about your monitoring needs, equipment, or current workflow..."></textarea>
+        </div>
+
+        <label class="agree">
+          <input type="checkbox">
+          <span>I agree to receive information about NOVA LAB. I can unsubscribe at any time. Privacy Policy</span>
+        </label>
+
+        <button type="submit" class="submit">Request my demo →</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- 下方四個特色 -->
+  <section class="features-bar">
+    <div class="container">
+      <div class="fb-head">
+        <span class="fb-title"><i class="dot"></i> DESIGNED FOR CONNECTED LAB OPERATIONS</span>
+        <span class="fb-right">Research · Biotech · Testing · R&amp;D</span>
+      </div>
+      <div class="fb-grid">
+        <div class="fb-card"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></span><div><strong>24/7 Monitoring</strong><p>Stay informed around the clock</p></div></div>
+        <div class="fb-card"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m12 3 3 1 3 1 1 3 2 4-2 3-1 3-3 1-3 2-3-2-3-1-1-3-2-3 2-4 1-3 3-1Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><strong>Connected Equipment</strong><p>Keep lab devices in one view</p></div></div>
+        <div class="fb-card"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3c2 2 4 3 7 4v6c0 4-3 7-7 8-4-1-7-4-7-8V7c3-1 5-2 7-4Z"/><path d="m9 12 2 2 4-4"/></svg></span><div><strong>Real-Time Alerts</strong><p>Know when conditions change</p></div></div>
+        <div class="fb-card"><span class="fb-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 7s-4 4-4 6a4 4 0 0 0 8 0c0-2-4-6-4-6Z"/><path d="M14 4s6 6 6 10a6 6 0 0 1-9 5"/></svg></span><div><strong>Cloud Dashboard</strong><p>Access key information in one place</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    <div class="footer-project-info">
+      <a href="index.html#home" class="logo"><img class="logo-icon" src="images/nova-lab_logo.png" alt=""></a>
+      <small>© 2026 NOVA LAB. All rights reserved.</small>
+      <nav aria-label="Footer navigation"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Documentation</a><a href="#">Contact</a></nav>
+    </div>
+    <div class="project-disclaimer">
+      NOVA LAB is a fictional brand created for a personal design portfolio. All products and interfaces shown are conceptual.
+    </div>
+  </footer>
+
+</body>
+</html>
