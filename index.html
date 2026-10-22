@@ -66,6 +66,7 @@
   </script>
 
   <script src="fade-up.js" defer></script>
+  <script type="module" src="hero-model.js"></script>
 </head>
 <body>
 
@@ -93,10 +94,32 @@
         <span class="tag">SMART LAB MONITORING</span>
         <h1>Smarter<br><span class="blue">Lab Monitoring.</span><br>Better Research.</h1>
         <p>Monitor environmental conditions, equipment, and critical lab systems in real time—all from one connected platform.</p>
+        <div class="hero-actions">
         <a href="#cta" class="btn btn-blue">Request a Demo <span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span></a>
         <a href="#how" class="btn btn-outline">See How It Works <span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span></a>
+        </div>
       </div>
-      <img class="hero-img" src="images/hardware01.png" alt="NOVA ONE laboratory monitoring device">
+      <div class="hero-product" aria-busy="true">
+        <model-viewer
+          id="hero-model"
+          src="models/nova-one.glb"
+          alt="Auto-rotating 3D view of the NOVA ONE laboratory monitoring device"
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="20deg"
+          camera-orbit="0deg 70deg 75%"
+          field-of-view="30deg"
+          environment-image="neutral"
+          exposure="1"
+          shadow-intensity="0.7"
+          shadow-softness="1"
+          interaction-prompt="none"
+          loading="eager"
+          reveal="auto">
+        </model-viewer>
+        <p class="hero-model-status" role="status">Loading 3D product…</p>
+        <noscript><p class="hero-model-noscript">Enable JavaScript to view the 3D product.</p></noscript>
+      </div>
       </div>
     </section>
 
@@ -105,7 +128,7 @@
       <div class="section-content">
       <div class="intro-head">
         <div>
-          <span class="tag">REAL-TIME LAB MONITORING</span>
+          <span class="tag">MEET NOVA ONE</span>
           <h2>One Device.<br>A <span class="blue">Smarter</span> Lab.</h2>
         </div>
         <p>NOVA ONE is a centralized laboratory monitoring system that combines environmental monitoring, equipment monitoring, and real-time alerts in one connected platform.</p>
@@ -113,16 +136,26 @@
       <div class="grid-3">
         <article class="card cyan">
           <span class="num">01</span>
+          <svg class="intro-icon intro-icon-signal" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/>
+            <circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none"/>
+          </svg>
           <h3>Environmental Monitoring</h3>
           <p>Continuously track temperature, humidity, air quality, and other critical lab conditions.</p>
         </article>
         <article class="card blue">
           <span class="num">02</span>
+          <svg class="intro-icon intro-icon-alert" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M12 22A10 10 0 1 1 22 12M12 6v6l-4 3M19 13v6M19 21v2"/>
+          </svg>
           <h3>Real-Time Alerts</h3>
           <p>Get notified when conditions change or critical thresholds are reached, so your team can respond quickly.</p>
         </article>
         <article class="card cyan">
           <span class="num">03</span>
+          <svg class="intro-icon intro-icon-monitor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M7 4H3a1 1 0 0 0-1 1v14h20v-5M9 19v5M15 19v5M6 24h12M8 8h4l2 6 4-11 2 5h3"/>
+          </svg>
           <h3>Equipment Monitoring</h3>
           <p>Keep track of connected equipment and monitor operating conditions through one central system.</p>
         </article>
@@ -132,6 +165,16 @@
 
     <!-- section3 / 深色區 -->
     <section class="page-section hardware" id="product">
+        <div class="hw-img-box">
+          <div class="hw-image-frame">
+            <img src="images/hardware01.png" alt="Close-up of the NOVA ONE monitoring device">
+          </div>
+          <ul class="pills">
+            <li>Compact &amp; Refined</li>
+            <li>Always Connected</li>
+            <li>Continuous Use</li>
+          </ul>
+        </div>
       <div class="section-content">
       <div class="container">
         <h2><span class="hardware-title-line">NOVA ONE<svg class="hardware-sparkles" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -140,16 +183,7 @@
           <path d="M82 64 Q85 79 100 82 Q85 85 82 100 Q79 85 64 82 Q79 79 82 64Z"/>
         </svg></span><br><span class="cyan">HARDWARE</span></h2>
         <p class="hw-text">NOVA ONE is a compact laboratory monitoring device designed to collect environmental and connected equipment data for centralized, real-time monitoring.</p>
-        <div class="hw-img-box">
-          <div class="hw-image-frame">
-            <img src="images/hardware02.png" alt="NOVA ONE monitoring device installed in a laboratory">
-          </div>
-          <ul class="pills">
-            <li>Compact &amp; Refined</li>
-            <li>Always Connected</li>
-            <li>Continuous Use</li>
-          </ul>
-        </div>
+
       </div>
       </div>
     </section>
@@ -196,7 +230,7 @@
     <section class="page-section container center-block" id="platform">
       <div class="section-content">
       <span class="tag">CENTRALIZED LAB MONITORING</span>
-      <h2>Your Entire Lab. <br/>One <span class="blue">Connected</span> Workspace.</h2>
+      <h2>Your Entire Lab. One <span class="blue">Connected</span><br>Workspace.</h2>
       <p class="sub">View live lab conditions, connected equipment, system status, and alerts from one centralized monitoring dashboard.</p>
 
       <img class="dashboard-image" src="images/Dashboard.png" width="2424" height="1730"
@@ -206,8 +240,8 @@
     </section>
 
     <!-- section6 / How it works -->
-    <section class="page-section container" id="how">
-      <div class="section-content">
+    <section class="page-section" id="how">
+      <div class="section-content container">
       <div class="intro-head">
         <div>
           <span class="tag">HOW IT WORKS</span>
@@ -247,7 +281,7 @@
         <div class="cta-details">
           <p>See how NOVA ONE helps your team monitor critical lab conditions, track connected equipment, and respond to real-time alerts.</p>
           <div class="cta-actions">
-            <a href="#" class="btn btn-cyan">Request a Demo <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a href="request-demo.html" class="btn btn-blue">Request a Demo <span class="hero-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 19 19 5M6 5h13v13"/></svg></span></a>
             <a href="#" class="btn btn-white"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 5h18v14H3zM3 5l9 7 9-7"/></svg>Contact Our Team</a>
           </div>
         </div>
