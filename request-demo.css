@@ -65,7 +65,7 @@
 .agree { display: flex; gap: 10px; align-items: flex-start; font-size: 11px; line-height: 1.6; color: var(--gray); margin-top: 24px; margin-bottom: 24px; cursor: pointer; }
 .agree input { appearance: none; flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--demo-border); border-radius: 4px; margin: 0; background: #fff; }
 .agree input:checked { appearance: auto; accent-color: var(--blue); }
-.submit { display: block; width: 100%; padding: 18px; border: none; border-radius: 16px; background: var(--blue); color: #fff; font-family: inherit; font-size: 16px; font-weight: 700; line-height: 20px; cursor: pointer; box-shadow: 0 6px 12px #1045ff12; }
+.submit { display: block; width: 100%; padding: 18px; border: none; border-radius: 16px; background: var(--blue); color: #fff; font-family: "Space Grotesk", sans-serif; font-size: 14px; font-weight: 500; line-height: 20px; cursor: pointer; box-shadow: 0 6px 12px #1045ff12; }
 .submit:hover { background: #0739df; }
 .form-card input:focus-visible, .submit:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
 
