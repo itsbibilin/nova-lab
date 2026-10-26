@@ -1,16 +1,21 @@
 (() => {
-  const contents = document.querySelectorAll('.page-section:not(.hero) > .section-content, .hardware .pills > li');
-  const pillGroups = document.querySelectorAll('.hardware .pills');
+  const sections = [...document.querySelectorAll('.page-section:not(.hero) > .section-content')];
+  const hardware = document.querySelector('.hardware');
+  const hardwareContent = document.querySelector('.hardware > .section-content');
+  const pills = [...document.querySelectorAll('.hardware .pills > li')];
+  const contents = [...sections, ...pills];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Leave content visible when animation is disabled or unsupported.
   if (reducedMotion.matches || !('IntersectionObserver' in window) ||
       !('animate' in Element.prototype)) return;
 
   let observer;
-  let pillsObserver;
+  let stopped = false;
+  let hardwareReady = false;
+  let nextPill = 0;
   const revealed = new WeakSet();
   const animations = new Map();
+
   const reveal = (content, immediate = false) => {
     observer?.unobserve(content);
     if (immediate) {
@@ -18,83 +23,82 @@
       content.style.removeProperty('opacity');
       animations.get(content)?.cancel();
       animations.delete(content);
-      return;
+      return Promise.resolve();
     }
-    if (revealed.has(content)) return;
+    if (revealed.has(content)) return Promise.resolve();
     revealed.add(content);
     const animation = content.animate([
       { opacity: 0, transform: 'translateY(32px)' },
       { opacity: 1, transform: 'translateY(0)' },
     ], {
-      duration: 1000,
-      delay: content.matches('.hardware .pills > li')
-        ? Array.from(content.parentElement.children).indexOf(content) * 150
-        : 0,
-      fill: 'backwards',
+      duration: pills.includes(content) ? 350 : 1000,
       easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
     });
     content.style.removeProperty('opacity');
     animations.set(content, animation);
-    animation.onfinish = () => animations.delete(content);
+    return animation.finished.catch(() => {}).then(() => animations.delete(content));
+  };
+
+  // Reveal by scroll position without waiting for the previous pill to finish.
+  const revealNextPill = () => {
+    if (stopped || !hardware || !pills.length) return;
+    const distanceToNextSection = hardware.getBoundingClientRect().bottom - window.innerHeight;
+    // Finish even during a fast scroll, before the next section enters view.
+    if (distanceToNextSection <= 40) {
+      pills.forEach((pill) => reveal(pill, true));
+      nextPill = pills.length;
+      return;
+    }
+    if (!hardwareReady) return;
+    while (nextPill < pills.length) {
+      const pill = pills[nextPill];
+      const triggerDistance = 240 - nextPill * 60;
+      if (distanceToNextSection > triggerDistance) break;
+      reveal(pill);
+      nextPill += 1;
+    }
   };
 
   const observeContents = () => {
     observer?.disconnect();
-    pillsObserver?.disconnect();
-    // Use viewport-height pixels: percentage root margins are based on width.
     const bottomInset = Math.round(window.innerHeight * 0.35);
     observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        reveal(entry.target);
+        const finished = reveal(entry.target);
+        if (entry.target === hardwareContent) {
+          finished.then(() => {
+            hardwareReady = true;
+            revealNextPill();
+          });
+        }
       });
-    }, {
-      threshold: 0,
-      rootMargin: `0px 0px -${bottomInset}px 0px`,
-    });
-    // Trigger the three pills together as soon as their group enters view.
-    pillsObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.querySelectorAll('li').forEach((pill) => reveal(pill));
-        pillsObserver.unobserve(entry.target);
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-    contents.forEach((content) => {
-      if (!content.matches('.hardware .pills > li') && !revealed.has(content)) {
-        observer.observe(content);
-      }
-    });
-    pillGroups.forEach((group) => {
-      if (Array.from(group.children).some((pill) => !revealed.has(pill))) {
-        pillsObserver.observe(group);
-      }
+    }, { threshold: 0, rootMargin: `0px 0px -${bottomInset}px 0px` });
+    sections.forEach((content) => {
+      if (!revealed.has(content)) observer.observe(content);
     });
   };
 
-  contents.forEach((section) => {
-    section.style.opacity = '0';
-  });
+  contents.forEach((content) => { content.style.opacity = '0'; });
   observeContents();
+  revealNextPill();
   window.addEventListener('resize', observeContents);
+  window.addEventListener('scroll', revealNextPill, { passive: true });
 
-  // Reveal content immediately when keyboard focus moves into it.
   document.addEventListener('focusin', (event) => {
     const section = event.target.closest('.page-section:not(.hero) > .section-content');
     if (section) reveal(section, true);
   });
 
   const revealAll = () => {
+    stopped = true;
     contents.forEach((content) => reveal(content, true));
     observer.disconnect();
-    pillsObserver.disconnect();
     window.removeEventListener('resize', observeContents);
+    window.removeEventListener('scroll', revealNextPill);
   };
   window.addEventListener('beforeprint', revealAll);
-
   reducedMotion.addEventListener('change', (event) => {
-    if (event.matches) {
-      revealAll();
-    }
+    if (event.matches) revealAll();
   });
 })();
